@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {% if category %}
+       {{category.description| truncatewords:155}}
+{% else %}
+       Welcome to global store where you can buy different items....
+     {% endif %}
+{% endblock %}
+{% block title %}
+    {% if category %}
+       {{category.name}}} - GLOBAL World}
+{% else %}
+  see our new collection
+     {% endif %}
+{% endblock %}
+{% block content %}
+ {% if category %}
+
+  <div class="container">
+      <div class="row my_row_class">
+          <div class="max_auto">
+          <p><a href="{% url 'ecom_app:allProductCat' %}"> Home</a>> {{category.name}} </p>
+      </div>
+          </div>
+  </div>
+{% endif %}
+<div class="mx_auto">
+    {% if category %}
+    <img class="my_image my_image_padding" src="{{category.image.url}}" alt="{{category.name}}">
+</div>
+<br>
+<div>
+    <h1 class="text-center my_title" >{{category.name}}</h1>
+<!--    <p class="text-justify"> {{category.description}}</p>-->
+
+</div>
+   {% else %}
+<div>
+<img class="my_image my_image_padding" src="{% static 'image/baner1.png' %}" alt="our products" width="1110" height="300">
+    </div>
+<br>
+<div>
+    <h1 class="text-center my_title" ><b>Our product collections</b></h1>
+    <p class="text-justify">We’re not your average fruit importers. We have expertise in sourcing the choicest of fresh fruits from around the world and distributing it across the length and breadth of India. Our top-notch distribution network strengthened through almost a century of existence in the fruit business, works efficiently to ensure the fruits are delivered far and wide with an intriguing depth of freshness. We provide fresh fruits online and fresh vegetables online.
+
+We have expertise in providing fresh fruits online and fresh vegetables online and offline and sourcing the choicest of fruits and vegetables from around the world</p>
+
+</div>
+ {% endif %}
+<div class="container">
+    <div class="row mx_auto">
+    {% for i in pro.object_list %}
+    <div class="my_bottom _margi col-9 col-sm-12 col-md-4 col-lg-4">
+        <div class="card text-center" style="min-width: 18rem; " >
+            {% if i.image %}
+            <a href="{{i.get_url}}"> <img class="card-image-top my_image" src="{{i.image.url }}" alt="{{i.name}}" ></a>
+            {% endif %}
+
+        <div class="card-body">
+            <h4> {{i.name}}</h4>
+            <p> INR {{i.price}}</p>
+        </div>
+    </div>
+        </div>
+    {% endfor %}
+    </div>
+    <div class="mx-auto">
+        {% if pro.paginator.num_pages > 1 %}
+       <hr>
+        <div class="text-center">
+            {% for pg in pro.paginator.page_range %}
+                <a href="?page={{pg}}" class="btn btn-sm {% if pro.number == pg %} active {% endif %}">{{pg}}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    </div>
+    <br>
+</div>
+
+<!--  <a href="{% url 'ecom_app:allProductCat' %}" class="btn btn-secondary w-100 mt-5">Back to Top</a>-->
+{% endblock %}

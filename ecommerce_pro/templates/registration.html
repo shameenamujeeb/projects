@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+        <title>Registration</title>
+</head>
+<body >
+
+       <div class="text-center">
+           <a href="{% url 'ecom_app:allProductCat' %}"><img src="{% static 'image/logo1.png' %}" class="img-fluid" style="width:200px;height:80px" ></a>
+           </div>
+   <div class="container d-flex justify-content-center mt-3" >
+
+        <div class="row border p-3 bg-red  box-area my_box_area border border-dark">
+            <div class="mb-5">
+            <h3>Create Account</h3>
+
+<form action="register" method="POST">
+    {% csrf_token %}
+    <div class="form-group mb-3">
+    <label for="text"> Your name</label>
+        <input type="text" name="name" placeholder="Name" class="form-control"></div>
+   <div class="form-group mb-3">
+       <label for="Number">Mobile Number</label>
+       <input type="number" name="mob" placeholder="Mobile Number" class="form-control"></div>
+    <div class="form-group mb-3">
+        <label for="email">Email(optional)</label>
+    <input type="email" name="email" placeholder="Email" class="form-control"></div>
+           <div class="form-group mb-3">
+               <label for="pass">Password</label>
+    <input type="password" name="password" placeholder="Password" class="form-control"></div>
+    <div class="text-start">
+    <p>To verify your number, we will send you a text message with a temporary code. Message and data rates may apply.</p>
+    </div>
+    <button class="btn btn-primary w-100">Register</button>
+                <div>
+        <div class="mt-5">
+            <p>
+Already have an account? <a href="{% url 'login_app:login' %}"> Sign in</a></p>
+        </div>
+    </div>
+
+
+</form>
+
+        </div>
+        </div>
+
+</body>
+</html>

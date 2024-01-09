@@ -1,0 +1,146 @@
+
+body{
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'PT Sans', sans-serif;
+}
+.nav-item{
+    letter-spacing :.2em;
+    font-size: 14px;
+t   text-transform:uppercase;
+
+}
+.dropdown-item{
+    letter-spacing:.2em;
+    font-size: 16px;
+
+}
+
+.my_footer{
+background-color:#E8E8E8;
+height:60px;
+
+}
+.my_footer p{
+    padding:20px;
+    font-size:14px;
+}
+/*** category page ***/
+.my_row_class{
+    padding-top:15px;
+}
+.my_row_class .mx_auto{
+       color:#000;
+       font-size:12px;
+}
+.my_image{
+    width:100%;
+    height:auto;
+
+}
+.card-image-top{
+
+height:200px;
+width:auto;
+}
+.my_title{
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+}
+.my_image_padding{
+    padding:5px;
+}
+.my_bottom_margin{
+margin-bottom:10px:
+}
+.card-body h4{
+text-transform:uppercase;
+letter-spacing:.2em:
+
+}
+/****product***/
+.my_prod_row_class{
+    padding-top:15px;
+    padding-bottom:20px;
+}
+.my_prod_row_class .mx_auto{
+color:#000;
+font-size:14px;
+
+text-decoration:none;
+
+}
+.my_prod_title{
+font-sie:14px;
+
+letter-spacing:,2em;
+padding-top:15px;
+padding-bottom:10px;
+
+}
+.my_search-text{
+padding-top:20px;
+}
+/*** cart ***/
+.my_custom_table{
+    min-width:400px;
+    font-size:16px;
+}
+
+
+.my_custom_thead{
+font-weight:normal;
+text_transform:uppercase;
+letter-spacing:0.2rem;
+background-color: #faf9f9;
+color:green;
+}
+
+.custom_a{
+text-decoration:none;
+}
+
+.custom_icon{
+text-decoration:none;
+color:#868e96 !important;
+}
+
+.my_custom_button{
+margin-top:5px;
+}
+/***login ****/
+
+.my_body
+{
+  font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'PT Sans', sans-serif;
+    background-color:white;
+}
+.box-area{
+width: 930px;
+height: 500px;
+
+}
+.sub_div {
+            position: absolute;
+            bottom: 0px;
+            text-align: center
+            }
+
+.my_box_area{
+width: 350px;
+height: 700px;
+
+}
+/***footer***/
+.my_colomn1{
+background-color:#232F3E
+position: fixed;
+}
+.my_con{
+
+text-align:center;
+height:60px;
+font-size:13px;
+
+}

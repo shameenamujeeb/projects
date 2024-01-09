@@ -1,0 +1,59 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color:#00A300">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'ecom_app:allProductCat' %}"><img src="{% static 'image/logo1.png' %}" width="100" height="38"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item dropdown {% if 'ecom_app' in request.path %} active {% endif %}">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" style="color:white" aria-expanded="false">
+           Shop by category
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'ecom_app:allProductCat' %}"> All Products</a></li>
+                {% for cat in links %}
+           <li><a class="dropdown-item" href="{{cat.get_url}}"> {{cat.name}}</a></li>
+              {% endfor %}
+          </ul>
+        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="#">fresh</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown {% if 'ecom_app' in request.path %} active {% endif %}">-->
+<!--          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--          Dropdown-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--            <li><a class="dropdown-item" href="{% url 'ecom_app:allProductCat' %}">All Products</a></li>-->
+<!--                {% for cat in links %}-->
+<!--              <li><a class="dropdown-item" href="{{cat.get_url}}">{{cat.name}}</a></li>-->
+<!--              {% endfor %}-->
+
+
+        <li class="nav-item" >
+          <a class="nav-link " href="{% url 'cart_app:cart_detail' %}" style="color:white"><i class="fa-solid fa-cart-shopping"></i>({{item_count}})</a>
+        </li>
+        </ul>
+      <form class="d-flex" action="{% url 'search_app:SearchResult' %}" method="get">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="What are you looking for?" name="q" aria-label="Search">
+        <div class="col-md-2">
+        <button class="btn btn-outline-success" type="submit" style="color:white"><i class="fa-solid fa-magnifying-glass"></i> </button>
+        </div>
+
+      </form>
+        </div>
+           <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'login_app:login' %}" style="color:white"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+
+    </ul>
+
+
+  </div>
+</nav>
+
+
+
