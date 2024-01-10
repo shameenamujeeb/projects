@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+<!--{{frm.as_p}}-->
+<!--    <input type="submit" value="Update">-->
+<!--    </form>-->
+
+<div class="container">
+     <div class="row">
+    <div class="col-md-6">
+<div class="card">
+    <div class="card-header">
+        <div class='card-title'>
+            <h6>Task Update</h6>
+            <div class="card-body">
+                <form method="post">
+    {% csrf_token %}
+{{frm.as_p}}
+    <input type="submit" value="Update">
+    </form>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
