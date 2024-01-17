@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+    .container{
+    margin:50px auto;
+    max_width:500px;
+    padding:30px;
+    background-color:lightblue;
+    }
+            input[type=text], input[type=password] {
+  width: 100%;
+  padding: 10px 20px;
+
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+    .imgcontainer {
+  text-align: center;
+  margin:10px 0 10px 0;
+  position: relative;
+}
+ .avatar{
+  width:40%;
+ border-radius:50%
+ }
+        .modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  width:300px;
+}
+        button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border: none;
+  cursor: pointer;
+  width:100%;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<form class="modal-content" action="login" method="POST">
+    {% csrf_token %}
+
+  <div class="imgcontainer">
+      <img src="{% static 'images/download.jpg' %}" alt="Avatar" class="avatar">
+        </div>
+    <h3 style="text-align:center">LOGIN</h3>
+<div class="container">
+    <input type="text" name="username" placeholder=" UserName"> <br><br>
+    <input type="password" name="password" placeholder="Password"><br><br>
+    <button type="submit" >Login</button>
+</div>
+</form>
+    {% for msg in messages %}
+    <h4 style="color:red">{{msg}}</h4>
+    {% endfor %}
+</div>
+
+
+
+</body>
+</html>
