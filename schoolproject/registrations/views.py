@@ -30,6 +30,9 @@ def register(request):
         email = request.POST['email']
         password = request.POST['password']
         cpassword = request.POST['password1']
+        if first_name=="" or last_name=="" or username=="" or email=="" or password=="" or cpassword=="" :
+            messages.warning(request,"There is one or more fields are empty!")
+            return redirect('register')
         if password == cpassword:
             if User.objects.filter(username=username).exists():
                 print("username already exists")
